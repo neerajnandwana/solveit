@@ -1,0 +1,17 @@
+<ui:composition template="/WEB-INF/templates/defaultTemplate.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<ui:define name="content">
+		<p></p>
+	</ui:define>
+
+	<ui:define name="footer">
+		<span class="field-validation-error">#{param.error}</span>
+		<form action="VerifyAnswer" method="post">
+			<input type="text" name="answer" class="#{not empty param.error ? 'input-validation-error' : ''}" autofocus="autofocus"/>
+			<input type="hidden" name="url" value="#{request.requestURL}" />
+			<input type="submit" value="Submit" />
+		</form>
+	</ui:define>
+</ui:composition>
